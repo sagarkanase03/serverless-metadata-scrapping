@@ -1,59 +1,32 @@
-# AGROAPP api services
-
-This repository is created for agroapp api services.
-
+# Serverless metadata scrapping
+This repository is created for Serverless-metadata-scrapping project, which has api to scrap webpage metadata.
 To play with this code locally, clone this repository and do the following:
 
 ## Prerequisites
+- [Node](https://nodejs.org/en/) - Ensure that your local machine has Node 812.0 or higher version installed.
+- [Serverless](https://www.serverless.com/) - Ensure that your local machine has serverless framework insatlled.
+- for this project we are going to deploy our code from local machine to AWS, so have aws keys configured in your machine.
 
-- [Node](https://nodejs.org/en/) - Ensure that your local machine has Node 8.11 or higher version installed.
-- [MySQL](https://www.mysql.com/) - Install MySQL with version 5.6 or higher.
 
 ## Setup
-
-### Clone repository from AWS CodeCommit to your local machine
+- to work on this project you need to have node.js and serverless globally installed in your machine
 
 ### First, install global dependencies
 
-
-### Install project and development dependancies
-
 ```bash
-cd agroapp-api-services
+npm install -g
+```
+### Install project and development dependancies
+```bash
 npm install
 ```
-
-### Configure the MySQL database
-
-- Create database to local machine with name `agroapp_db`
-- Take a look at .env file, update you're database keys
-
 ### Start the offline app
 
 ```bash
 npm start
 ```
-
-### To lint, use
-
-```bash
-npm run lint
-```
-
-### To run unit tests, use
+### Deploy code on AWS
 
 ```bash
-npm unit-tests
-```
-
-### To run integration tests, use
-
-```bash
-npm run integration-tests
-```
-
-### If you want to run all tests, use
-
-```bash
-npm test
+Serverless deploy --test
 ```
