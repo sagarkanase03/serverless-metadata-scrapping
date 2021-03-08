@@ -1,0 +1,28 @@
+{
+  "name": "serverless-metadata-scrapping",
+  "version": "1.0.0",
+  "description": "this project has api's for metadata scrapping deployed on aws",
+  "main": "index.js",
+  "scripts": {
+    "start": "serverless offline start",
+    "test": "jest --coverage"
+  },
+  "author": "sagarkanase1997@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "serverless-dotenv-plugin": "^3.8.1",
+    "serverless-http": "^2.7.0",
+    "serverless-offline": "^6.8.0",
+    "serverless-plugin-split-stacks": "^1.11.0",
+    "serverless-prune-plugin": "^1.4.4"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}

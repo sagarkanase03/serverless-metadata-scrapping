@@ -1,0 +1,48 @@
+service: serverless-metadata-scrapping
+
+frameworkVersion: '>=1.0.0 <2.0.0'
+
+custom:
+  splitStacks:
+    perFunction: false
+    perType: true
+  prune:
+    automatic: true
+    number: 2
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${env:STAGE}
+  region: ${env:REGION}
+  memorySize: 512
+  usagePlan:
+    quota:
+      limit: 5000
+      offset: 2
+      period: MONTH
+    throttle:
+      burstLimit: 100
+      rateLimit: 2
+  environment:
+    STAGE: ${env:STAGE}
+    REGION: ${env:REGION}
+
+functions:
+  metadataScrappingFunc:
+    handler: src/functions/metadata_scrapping/index.handler
+    events:
+      - http:
+          path: /metadata-scrapping
+          method: POST
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+            allowCredentials: false
+            
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+  - serverless-plugin-split-stacks
+  - serverless-prune-plugin
